@@ -2,6 +2,7 @@ import './globals.css';
 import { PT_Sans } from 'next/font/google';
 import { Analytics } from "@vercel/analytics/next"
 import type { Metadata } from 'next';
+import Script from "next/script";
 
 const ptSans = PT_Sans({
   subsets: ['latin'],
@@ -32,6 +33,13 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="fr">
+      <head>
+        <Script
+          src="https://eqlair-analytics.vercel.app/script.js"
+          data-website-id="312d6623-ac41-4c83-9952-1466d2e0b98b"
+          strategy="afterInteractive" // ensures script loads after hydration
+        />
+      </head>
       <Analytics/>
       <body className={ptSans.className}>{children}</body>
     </html>
