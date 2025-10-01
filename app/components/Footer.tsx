@@ -63,7 +63,7 @@ const Footer = () => {
                 <p>
                 🌐 Site web par{" "}
                 <a
-                            href="mailto:daggermaster2000@proton.me"
+                            href="https://eqlair.ch/"
                             className="text-[#be4029] hover:underline"
                         >
                 EQlair Studio
