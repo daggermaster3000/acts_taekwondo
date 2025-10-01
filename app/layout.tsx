@@ -89,6 +89,13 @@ export const metadata: Metadata = {
   
   // Informations de contact et business
   category: 'Sports et Loisirs',
+  themeColor: [
+    { media: '(prefers-color-scheme: light)', color: '#ffffff' },
+    { media: '(prefers-color-scheme: dark)', color: '#0a0a0a' },
+  ],
+  other: {
+    'color-scheme': 'light dark',
+  },
 };
 
 // Données structurées JSON-LD pour le SEO local
@@ -135,6 +142,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="fr">
       <head>
+        {/* Performance hints */}
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
         {/* Données structurées pour le SEO local */}
         <script
           type="application/ld+json"
@@ -149,8 +159,14 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         />
       </head>
       <body className={ptSans.className}>
+        {/* Skip link for accessibility */}
+        <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 bg-black text-white px-3 py-2 rounded">
+          Aller au contenu principal
+        </a>
         <Analytics/>
-        {children}
+        <main id="main-content">
+          {children}
+        </main>
       </body>
     </html>
   );
