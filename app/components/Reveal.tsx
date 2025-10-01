@@ -4,7 +4,7 @@ import React, { useEffect, useRef, useState } from 'react'
 
 type RevealProps = {
   children: React.ReactNode
-  as?: keyof JSX.IntrinsicElements
+  as?: keyof React.JSX.IntrinsicElements
   delayMs?: number
   offset?: number
   className?: string
@@ -17,7 +17,7 @@ export default function Reveal({
   offset = 0.1,
   className = '',
 }: RevealProps) {
-  const ref = useRef<HTMLElement | null>(null)
+  const ref = useRef<HTMLDivElement | null>(null)
   const [visible, setVisible] = useState(false)
 
   useEffect(() => {
@@ -50,16 +50,15 @@ export default function Reveal({
   }, [delayMs, offset])
 
   return (
-    <Tag
-      ref={ref as any}
+    <div
+      ref={ref}
       className={[
         'transition-all duration-700 ease-out will-change-transform',
         visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-3',
-        className,
       ].join(' ')}
     >
-      {children}
-    </Tag>
+      <Tag className={className}>{children}</Tag>
+    </div>
   )
 }
 

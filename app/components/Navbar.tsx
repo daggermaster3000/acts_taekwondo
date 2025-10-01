@@ -85,7 +85,8 @@ export default function Navbar() {
       >
         {/* Backdrop with blur */}
         <div
-          className={`absolute inset-0 transition-opacity duration-300 ${isOpen ? 'opacity-100' : 'opacity-0'} bg-white/30 dark:bg-black/30 backdrop-blur-md`}
+          className={`absolute inset-0 transition-opacity duration-300 ${isOpen ? 'opacity-100' : 'opacity-0'} bg-white/30 dark:bg-black/30`}
+          style={{ backdropFilter: 'blur(6px)' }}
           onClick={() => setIsOpen(false)}
         />
         {/* Sliding panel */}

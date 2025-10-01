@@ -41,6 +41,7 @@ export const metadata: Metadata = {
     'geo.placename': 'Crissier',
     'geo.position': '46.5369;6.5801', // Coordonnées approximatives de Crissier
     'ICBM': '46.5369, 6.5801',
+    'color-scheme': 'light dark',
   },
   
   // Open Graph optimisé
@@ -93,9 +94,6 @@ export const metadata: Metadata = {
     { media: '(prefers-color-scheme: light)', color: '#ffffff' },
     { media: '(prefers-color-scheme: dark)', color: '#0a0a0a' },
   ],
-  other: {
-    'color-scheme': 'light dark',
-  },
 };
 
 // Données structurées JSON-LD pour le SEO local
